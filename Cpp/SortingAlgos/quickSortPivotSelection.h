@@ -9,29 +9,15 @@ int partitionPivotSelection(vector<int>& array, int start, int end, CppAnalyser&
     // Setting the pivot point
     int pivot = array[end];
     if(end-start+1 >= 3) {
-        vector<pair<int, int>> pivots = {
-            {array[start + 0], start+0},
-            {array[start + 1], start+1},
-            {array[start + 2], start+2}
-        };
-        
-        if (pivots[1].first < pivots[0].first) {
-            analyser.swap(pivot, pivot);
-            swap(pivots[1], pivots[0]);
-        }
-
-        if (pivots[2].first < pivots[1].first) {
-            analyser.swap(pivot, pivot);
-            swap(pivots[2], pivots[1]);
-        }
-
-        if (pivots[1].first < pivots[0].first) {
-            analyser.swap(pivot, pivot);
-            swap(pivots[1], pivots[0]);
-        }
-
-        pivot = pivots[1].first;
-        analyser.swap(array[end], array[pivots[1].second]);
+        int pivotIndex;
+        if ((array[start + 0] > array[start + 1]) ^ (array[start + 0] > array[start + 2]))
+            pivotIndex = start + 0;
+        else if ((array[start + 1] > array[start + 0]) ^ (array[start + 1] > array[start + 2]))
+            pivotIndex = start + 1;
+        else
+            pivotIndex = start + 2;
+        pivot = array[pivotIndex];
+        analyser.swap(array[pivotIndex], array[end]);
     }
 
     int i = start - 1;

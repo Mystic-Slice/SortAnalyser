@@ -6,25 +6,13 @@ def partitionPivotSelection(array: list, start: int, end: int,analyser):
     pivot = array[end]
     
     if end-start+1 >= 3:
-        pivots = [
-            [array[start + 0], start+0],
-            [array[start + 1], start+1],
-            [array[start + 2], start+2],
-        ]
-        
-        if pivots[1][0] < pivots[0][0]:
-            analyser.swap(pivot, pivot)
-            pivots[0], pivots[1] = pivots[1], pivots[0]
-        
-        if pivots[2][0] < pivots[1][0]:
-            analyser.swap(pivot, pivot)
-            pivots[1], pivots[2] = pivots[2], pivots[1]
-        
-        if pivots[1][0] < pivots[0][0]:
-            analyser.swap(pivot, pivot)
-            pivots[0], pivots[1] = pivots[1], pivots[0]        
-
-        pivot, pivotIndex = pivots[1]
+        if ((array[start + 0] > array[start + 1]) ^ (array[start + 0] > array[start + 2])):
+            pivotIndex = start + 0
+        elif ((array[start + 1] > array[start + 0]) ^ (array[start + 1] > array[start + 2])):
+            pivotIndex = start + 1
+        else:
+            pivotIndex = start + 2
+        pivot = array[pivotIndex]
         array[pivotIndex], array[end] = analyser.swap(array[pivotIndex], array[end])
 
     i = start-1    
