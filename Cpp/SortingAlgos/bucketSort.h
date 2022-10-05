@@ -25,7 +25,6 @@ void bucketSort(int numElements, vector<int>& array, CppAnalyser &analyser) {
             array[ptr] = num;
             ptr++;
         }
-        analyser.trackSpace(bucket);
     }
 
     analyser.endTimer();

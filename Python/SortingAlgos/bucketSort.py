@@ -3,15 +3,22 @@ from SortingAlgos.insertionSort import insertionSort
 def bucketSort(numElements,array,analyser):
 	analyser.startTimer()
 	analyser.trackSpace(array)
-	numofBuckets=10
+
+	numofBuckets=numElements//10
 	bucketed=[]
+
 	for i in range(numofBuckets):
 		bucketed.append([])
+
+	mx = max(array)
 	for j in range(len(array)):
-		index=(numofBuckets*array[j])//(max(array)+1)
+		analyser.iterate()
+		index=(numofBuckets*array[j])//(mx+1)
 		bucketed[index].append(array[j])
+
 	for k in range(numofBuckets):
 		insertionSort(len(bucketed[k]),bucketed[k],analyser)
+
 	ind=0
 	for i in range(numofBuckets):
 		for j in range(len(bucketed[i])):

@@ -48,7 +48,7 @@ void insertionSortMini( int start, int end, vector<int>& array, CppAnalyser &ana
 } 
 
 void doQuickSortInsertion(vector<int>& array, int start, int end, CppAnalyser& analyser) {
-    if(end-start+1 <= 10) {
+    if(end-start+1 <= 6) {
         int key, j;
         // Traveresing the array for Sorting
         for(int index = start; index < end+1; index++ ) {        
