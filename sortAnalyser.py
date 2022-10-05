@@ -11,6 +11,8 @@ ALGORITHMS = [
     "bubbleSort",
     "insertionSort",
     "mergeSort",
+    "mergeInsertionSort",
+    "inplaceMergeSort"
     "quickSort",
     "quickSortPivotSelection",
     "quickSortInsertion",

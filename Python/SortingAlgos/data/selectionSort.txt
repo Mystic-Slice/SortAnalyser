@@ -1,5 +1,10 @@
 Iterations: 499500
 Comparisons: 499500
 Swaps: 1000
+<<<<<<< HEAD
+Time: 0.1905748844
+Space: 37968
+=======
 Time: 0.0947709084
 Space: 37328
+>>>>>>> 8eee87b78cdf6ecc9f20284417d704f379e9df9b

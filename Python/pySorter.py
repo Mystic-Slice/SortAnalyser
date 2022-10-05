@@ -10,22 +10,25 @@ from SortingAlgos.quickSortPivotSelection import quickSortPivotSelection
 from SortingAlgos.quickSortInsertion import quickSortInsertion
 from SortingAlgos.selectionSort import selectionSort
 from SortingAlgos.bucketSort import bucketSort
-from SortingAlgos.heapSort import heapSort
+from SortingAlgos.mergeInsertionSort import mergeInsertionSort
+from SortingAlgos.inplaceMergeSort import inplaceMergeSort
 
 # To add new algorithms, add a new entry in this dictionary
 # Key - Algorithm name, will be recognised from commandline
 # Value - Function name
 # Don't forget to import the sorting function
 FUNCTIONS_DICT = {
-    "bubbleSort" : bubbleSort,
-    "insertionSort" : insertionSort,
+    # "bubbleSort" : bubbleSort,
+    # "insertionSort" : insertionSort,
     "mergeSort" : mergeSort,
-    "quickSort" : quickSort,
-    "quickSortPivotSelection" : quickSortPivotSelection,
-    "quickSortInsertion" : quickSortInsertion,
-    "selectionSort" : selectionSort,
-    "bucketSort" : bucketSort,
-    "heapSort" : heapSort
+    # "quickSort" : quickSort,
+    # "quickSortPivotSelection" : quickSortPivotSelection,
+    # "quickSortInsertion" : quickSortInsertion,
+    # "selectionSort" : selectionSort,
+    # "bucketSort" : bucketSort,
+    #"heapSort" : heapSort,
+    "mergeInsertionSort" : mergeInsertionSort,
+    "inplaceMergeSort" : inplaceMergeSort
 }
 
 def readArray():
