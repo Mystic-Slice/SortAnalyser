@@ -62,6 +62,7 @@ void merger(vector<int>array,int l,int m,int r,CppAnalyser &analyser){
 void mergeInsertionSort(int numElements,vector<int>&array,CppAnalyser &analyser){
 	analyser.startTimer();
 	analyser.trackSpace(array);
+	cout<<"Here"<<endl;
 	int n=array.size();
 	int i;
 	int j;
@@ -78,9 +79,7 @@ void mergeInsertionSort(int numElements,vector<int>&array,CppAnalyser &analyser)
 
 			if(analyser.comparelt(mid,right))
 				merger(array,left,mid,right,analyser);
-
 		}
-
 	}
 	analyser.endTimer();
 	return;

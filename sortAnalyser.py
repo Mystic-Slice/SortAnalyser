@@ -12,7 +12,7 @@ ALGORITHMS = [
     "insertionSort",
     "mergeSort",
     "mergeInsertionSort",
-    "inplaceMergeSort"
+    "inplaceMergeSort",
     "quickSort",
     "quickSortPivotSelection",
     "quickSortInsertion",
@@ -21,7 +21,7 @@ ALGORITHMS = [
     "heapSort"
 ]
 
-INPUT_SIZES = [i for i in range(200, 1001, 200)]
+INPUT_SIZES = [i for i in range(1000, 1001, 200)]
 
 QUANTITIES = [ "Comparisons", "Swaps", "Iterations", "Time", "Space"]
 

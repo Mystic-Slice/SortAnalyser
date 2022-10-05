@@ -8,6 +8,8 @@
 #include "SortingAlgos/bubbleSort.h"
 #include "SortingAlgos/insertionSort.h"
 #include "SortingAlgos/mergeSort.h"
+#include "SortingAlgos/inplaceMergeSort.h"
+#include "SortingAlgos/mergeInsertionSort.h"
 #include "SortingAlgos/quickSort.h"
 #include "SortingAlgos/quickSortPivotSelection.h"
 #include "SortingAlgos/quickSortInsertion.h"
@@ -25,6 +27,8 @@ map<string, function<void(int numElements, vector<int>& array, CppAnalyser& anal
     { "bubbleSort", bubbleSort },
     { "insertionSort", insertionSort },
     { "mergeSort", mergeSort },
+    { "mergeInsertionSort", mergeInsertionSort },
+    { "inplaceMergeSort", inplaceMergeSort },
     { "quickSort", quickSort },
     { "quickSortPivotSelection", quickSortPivotSelection },
     { "quickSortInsertion", quickSortInsertion },

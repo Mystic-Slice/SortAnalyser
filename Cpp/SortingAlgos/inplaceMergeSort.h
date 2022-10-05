@@ -38,8 +38,5 @@ void inplaceMergeSort(int numElements,vector<int>&array,CppAnalyser &analyser){
 	analyser.trackSpace(array);
 	int length=array.size();
 	func(array,0,length-1,analyser);
-	for(int i=0;i<length;i++){
-		cout<<array[i]<<" ";
-	}
 	analyser.endTimer();
 }
