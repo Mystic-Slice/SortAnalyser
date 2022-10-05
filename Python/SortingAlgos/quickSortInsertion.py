@@ -17,24 +17,8 @@ def partitionInsertion(array: list, start: int, end: int,analyser):
     # Returning the partition index value
     return i+1
 
-def insertionSortMini(start, end, array, analyser):    
-    # Traversing the array for Sorting
-    for index in range(start, end+1):
-        key = array[index]
-        j = index - 1
-
-        # Comparing the array elements with key value
-        while ((not analyser.comparelt(j,0)) and analyser.comparegt(array[j],key)):
-            analyser.iterate()
-            # Shifting the array elements to one position ahead
-            array[j+1],array[j] = analyser.swap(array[j+1],array[j])
-            j = j - 1
-    
-        # Replacing the array element with the key value
-        array[j+1], key = analyser.swap(array[j + 1], key)
-
 def doQuickSortInsertion(array: list, start: int, end: int,analyser):
-    if(end-start+1 <= 10):
+    if(end-start+1 <= 6):
         # Traversing the array for Sorting
         for index in range(start, end+1):
             key = array[index]

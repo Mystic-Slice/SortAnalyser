@@ -26,29 +26,8 @@ int partitionInsertion(vector<int>& array, int start, int end, CppAnalyser& anal
     return i+1;
 }
 
-void insertionSortMini( int start, int end, vector<int>& array, CppAnalyser &analyser) {
-    int key, j;
-    // Traveresing the array for Sorting
-    for(int index = start; index < end+1; index++ ) {        
-        key = array[index];
-        j = index - 1;
-        
-        // Comparing the array elements with key value
-        while ((!analyser.comparelt(j,0)) && analyser.comparegt(array[j],key)) {
-            analyser.iterate();
-            // Shifting the array elements to one position ahead
-            analyser.swap(array[j + 1], array[j]);
-        
-            j = j - 1;
-        }
-        
-        // Replacing the array element with the key value
-        analyser.swap(array[j + 1], key);
-    }
-} 
-
 void doQuickSortInsertion(vector<int>& array, int start, int end, CppAnalyser& analyser) {
-    if(end-start+1 <= 10) {
+    if(end-start+1 <= 6) {
         int key, j;
         // Traveresing the array for Sorting
         for(int index = start; index < end+1; index++ ) {        
