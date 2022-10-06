@@ -1,5 +1,5 @@
-Iterations: 9976
-Comparisons: 8704
+Iterations: 1668928
+Comparisons: 1536532
 Swaps: 0
-Time: 0.0010000000
-Space: 43904
+Time: 0.0530000000
+Space: 7075712

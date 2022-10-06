@@ -1,39 +1,23 @@
 #include<vector>
 #include<iostream>
 using namespace std;
-void insertion(vector<int>&array,int left,int right,CppAnalyser &analyser){
-	int i;
-	int temp;
-	int j;
-	for(i=left+1;i<=right;i++){
-		analyser.iterate();
-		temp=array[i];
-		j=i-1;
-		while(j>=left && analyser.comparegt(array[j],temp)){
-			array[j+1]=array[j];
-			j--;
-		}
-		array[j+1]=temp;
-	}
-}
-void merger(vector<int>array,int l,int m,int r,CppAnalyser &analyser){
+
+void mergeRuns(vector<int>& array,int l,int m,int r,CppAnalyser &analyser){
 	int len1=m-l+1;
 	int len2=r-m;
 	vector<int>left(len1);
-	analyser.trackSpace(left);
 	vector<int>right(len2);
-	analyser.trackSpace(right);
-	int i;
-	int j;
-	int k;
+	int i, j, k;
 	for(i=0;i<len1;i++){
 		analyser.iterate();
 		left[i]=array[l+i];
 	}
 	for(i=0;i<len2;i++){
 		analyser.iterate();
-		right[i]=array[m+l+i];
+		right[i]=array[m+i+1];
 	}
+	analyser.trackSpace(left);
+	analyser.trackSpace(right);
 	i=0;
 	j=0;
 	k=l;
@@ -59,27 +43,49 @@ void merger(vector<int>array,int l,int m,int r,CppAnalyser &analyser){
 		j++;
 	}
 }
+
+void insertionSortRun(vector<int>&array,int begin,int end,CppAnalyser &analyser){
+	for(int i = begin+1; i<=end; i++) {
+		analyser.iterate();
+		int j = i;
+		while (analyser.comparegt(j, begin) && analyser.comparelt(array[j], array[j-1])) {
+			analyser.swap(array[j], array[j-1]);
+			j--;
+		}
+	}
+}
+
+int minlen(int n) {
+	int r=0;
+	while (n>=32) {
+		r|=n&1;
+		n>>=1;
+	}
+	return n+r;
+}
+
 void mergeInsertionSort(int numElements,vector<int>&array,CppAnalyser &analyser){
 	analyser.startTimer();
 	analyser.trackSpace(array);
-	cout<<"Here"<<endl;
-	int n=array.size();
-	int i;
-	int j;
-	int left;
-	int mid;
-	int right;
-	for(i=0;i<n;i+=32)
-		insertion(array,i,min((i+32-1),(n-1)),analyser);
-	for(j=32;j<n;j=2*j){
-		analyser.iterate();
-		for(left=0;left<n;left+=2*j){
-			mid=left+j-1;
-			right=min((left + 2*j - 1),(n-1));
 
-			if(analyser.comparelt(mid,right))
-				merger(array,left,mid,right,analyser);
+	int n=array.size();
+	int m = minlen(n);
+
+	int end;
+	for(int i = 0; i<n; i+=m) {
+		end = min(i+m-1, n-1);
+		insertionSortRun(array, i, end, analyser);
+	}
+
+	int length = m;
+	while (length < n) {
+		for(int l = 0; l < n; l += 2*length) {
+			int mid = min(n-1, l + length - 1);
+			int r = min((l + 2*length - 1), (n-1));
+			if (mid < r) 
+				mergeRuns(array, l, mid, r, analyser);
 		}
+		length = length * 2;
 	}
 	analyser.endTimer();
 	return;
