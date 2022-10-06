@@ -9,16 +9,16 @@ LANGS = {
 
 ALGORITHMS = [
     # "bubbleSort",
-    # "insertionSort",
+    "insertionSort",
     "mergeSort",
-    "mergeInsertionSort",
-    "inplaceMergeSort",
-    # "quickSort",
+    # "mergeInsertionSort",
+    # "inplaceMergeSort",
+    "quickSort",
     # "quickSortPivotSelection",
     # "quickSortInsertion",
     # "selectionSort",
-    # "bucketSort",
-    # "heapSort"
+    "bucketSort",
+    "heapSort"
 ]
 
 INPUT_SIZES = [i for i in range(10000, 100001, 500)]
